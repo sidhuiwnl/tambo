@@ -1,0 +1,190 @@
+name: Tambo Upgrade Templates
+
+on:
+  repository_dispatch:
+    types: [tambo_release]   # fired from release-please.yml
+  workflow_dispatch:         # for manual testing
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: tambo-upgrade-${{ github.run_id }}
+  cancel-in-progress: false
+
+env:
+  # List of target repositories. Start with one; expand later.
+  TARGET_REPOS: |
+    tambo-ai/tambo-template
+
+jobs:
+  plan-and-fanout:
+    runs-on: ubuntu-latest
+    outputs:
+      react_sdk_release: ${{ steps.extract.outputs.react_sdk_release }}
+      cli_release: ${{ steps.extract.outputs.cli_release }}
+      tag_name: ${{ steps.extract.outputs.tag_name }}
+      matrix: ${{ steps.make_matrix.outputs.matrix }}
+    steps:
+      - name: Extract release flags from dispatch (or default for manual)
+        id: extract
+        run: |
+          # Default values for workflow_dispatch
+          REACT="false"
+          CLI="false"
+          TAG="manual-test"
+
+          if [ "${{ github.event_name }}" = "repository_dispatch" ]; then
+            REACT="${{ github.event.client_payload.react_sdk_release }}"
+            CLI="${{ github.event.client_payload.cli_release }}"
+            TAG="${{ github.event.client_payload.tag_name }}"
+          fi
+
+          echo "react_sdk_release=$REACT" >> "$GITHUB_OUTPUT"
+          echo "cli_release=$CLI" >> "$GITHUB_OUTPUT"
+          echo "tag_name=$TAG" >> "$GITHUB_OUTPUT"
+
+      - name: Build repo matrix
+        id: make_matrix
+        run: |
+          arr=$(printf '%s\n' "${TARGET_REPOS}" | sed '/^\s*$/d' | jq -R . | jq -s .)
+          matrix=$(echo $arr | jq -c '[.[] | {repo: .}]')
+          echo "matrix={\"include\": $matrix}" >> "$GITHUB_OUTPUT"
+
+  upgrade-each-template:
+    needs: plan-and-fanout
+    if: |
+      github.event_name == 'workflow_dispatch' ||
+      needs.plan-and-fanout.outputs.react_sdk_release == 'true' ||
+      needs.plan-and-fanout.outputs.cli_release == 'true'
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.plan-and-fanout.outputs.matrix) }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout template repo
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ matrix.repo }}
+          token: ${{ secrets.UPGRADE_BOT_TOKEN }}  # PAT or GitHub App token with repo access
+          fetch-depth: 0
+          ref: main
+          path: repo
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: repo/package-lock.json
+
+      - name: Capture pre-upgrade package.json
+        working-directory: repo
+        run: |
+          test -f package.json && cp package.json ../before.package.json || true
+
+      - name: Run Tambo upgrade
+        working-directory: repo
+        run: |
+          echo "Would run: npx tambo@latest upgrade --accept-all --silent"
+          echo "=== Diff after upgrade ==="
+          git status
+          git diff > ../upgrade.diff || true
+
+      - name: Summarize changes (versions + components)
+        id: summary
+        working-directory: repo
+        run: |
+          # Extract package version bumps if any
+          set +e
+          OLD_REACT=$(jq -r '.dependencies["@tambo-ai/react"] // .devDependencies["@tambo-ai/react"] // empty' ../before.package.json 2>/dev/null)
+          NEW_REACT=$(jq -r '.dependencies["@tambo-ai/react"] // .devDependencies["@tambo-ai/react"] // empty' package.json 2>/dev/null)
+          OLD_SDK=$(jq -r '.dependencies["@tambo-ai/typescript-sdk"] // .devDependencies["@tambo-ai/typescript-sdk"] // empty' ../before.package.json 2>/dev/null)
+          NEW_SDK=$(jq -r '.dependencies["@tambo-ai/typescript-sdk"] // .devDependencies["@tambo-ai/typescript-sdk"] // empty' package.json 2>/dev/null)
+          set -e
+
+          # List updated component files under src/components/tambo
+          git add -A
+          git diff --staged --name-only | grep -E '^src/components/tambo/' || true > ../components_changed.txt
+
+          {
+            echo "react_old=$OLD_REACT"
+            echo "react_new=$NEW_REACT"
+            echo "sdk_old=$OLD_SDK"
+            echo "sdk_new=$NEW_SDK"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Create branch and commit
+        working-directory: repo
+        run: |
+          git config user.name "tambo-upgrade-bot"
+          git config user.email "actions@github.com"
+
+          BRANCH="tambo-upgrade-${{ needs.plan-and-fanout.outputs.tag_name }}"
+          git checkout -b "$BRANCH" || git checkout "$BRANCH"
+
+          # Only commit if there are changes
+          if [ -n "$(git status --porcelain)" ]; then
+            git add -A
+            git commit -m "chore: tambo upgrade (${{
+              needs.plan-and-fanout.outputs.tag_name
+            }})"
+            git push -u origin "$BRANCH"
+          else
+            echo "No changes after upgrade. Skipping PR."
+            echo "skip_pr=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build PR body
+        if: always()
+        run: |
+          {
+            echo "## Tambo Upgrade - ${{ needs.plan-and-fanout.outputs.tag_name }}"
+            echo
+            echo "This PR updates your template to the latest Tambo release."
+            echo
+            echo "### Package Updates"
+            if [ -n "${{ steps.summary.outputs.react_new }}" ] && [ "${{ steps.summary.outputs.react_new }}" != "${{ steps.summary.outputs.react_old }}" ]; then
+              echo "- @tambo-ai/react: ${{ steps.summary.outputs.react_old }} → ${{ steps.summary.outputs.react_new }}"
+            fi
+            if [ -n "${{ steps.summary.outputs.sdk_new }}" ] && [ "${{ steps.summary.outputs.sdk_new }}" != "${{ steps.summary.outputs.sdk_old }}" ]; then
+              echo "- @tambo-ai/typescript-sdk: ${{ steps.summary.outputs.sdk_old }} → ${{ steps.summary.outputs.sdk_new }}"
+            fi
+            echo
+            echo "### Component Updates"
+            if [ -s components_changed.txt ]; then
+              echo "Components updated from registry (files changed under \`src/components/tambo/\`):"
+              sed 's/^/- /' components_changed.txt
+            else
+              echo "_No component file changes detected_"
+            fi
+            echo
+            echo "### Release Information"
+            echo "- Release tag: \`${{ needs.plan-and-fanout.outputs.tag_name }}\`"
+            echo "- React SDK release: ${{ needs.plan-and-fanout.outputs.react_sdk_release }}"
+            echo "- CLI release: ${{ needs.plan-and-fanout.outputs.cli_release }}"
+            echo
+            echo "### Testing Required"
+            echo "- [ ] App builds successfully (\`npm run build\`)"
+            echo "- [ ] Core chat functionality works"
+            echo "- [ ] Component rendering in \`/interactables\`"
+            echo "- [ ] No TypeScript errors (\`npm run lint\`)"
+            echo
+            echo "_Generated by Tambo upgrade bot_"
+          } > PR_BODY.md
+
+      - name: Create Pull Request
+        if: always()
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.UPGRADE_BOT_TOKEN }}
+          path: repo
+          branch: tambo-upgrade-${{ needs.plan-and-fanout.outputs.tag_name }}
+          commit-message: "chore: tambo upgrade (${{ needs.plan-and-fanout.outputs.tag_name }})"
+          title: "Tambo Upgrade – ${{ needs.plan-and-fanout.outputs.tag_name }}"
+          body-path: PR_BODY.md
+          labels: |
+            dependencies
+            tambo-upgrade

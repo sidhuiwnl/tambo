@@ -119,3 +119,29 @@ jobs:
           git checkout deploy-showcase
           git merge --no-ff main -m "chore: merge main into deploy-showcase for release ${{ needs.release-please.outputs.tag_name }}"
           git push origin deploy-showcase
+    
+  notify-template-upgrades:
+    needs: [release-please,publish-npm]
+    runs-on: ubuntu-latest
+    if: ${{ needs.release-please.outputs.react-sdk--release_created == 'true' || needs.release-please.outputs.cli--release_created == 'true' }}
+    steps:
+      - name: Send repository_dispatch to trigger template upgrades
+        env:
+          GH_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+        run: |
+          cat > payload.json <<'JSON'
+          {
+            "event_type": "tambo_release",
+            "client_payload": {
+              "react_sdk_release": "${{ needs.release-please.outputs.react-sdk--release_created }}",
+              "cli_release": "${{ needs.release-please.outputs.cli--release_created }}",
+              "tag_name": "${{ needs.release-please.outputs.tag_name }}"
+            }
+          }
+          JSON
+
+          curl -s -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            https://api.github.com/repos/${{ github.repository }}/dispatches \
+            -d @payload.json
