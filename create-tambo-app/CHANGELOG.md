@@ -1,5 +1,55 @@
 # Changelog
 
+## [0.2.0](https://github.com/sidhuiwnl/tambo/compare/create-tambo-app-v0.1.13...create-tambo-app-v0.2.0) (2025-08-29)
+
+
+### Features
+
+* update showcase with new components ([#367](https://github.com/sidhuiwnl/tambo/issues/367)) ([581359a](https://github.com/sidhuiwnl/tambo/commit/581359adc7f85433c08f7a3c5da7af65cb8529fc))
+
+
+### Bug Fixes
+
+* **cli:** update npx command to use create-app without version specifier ([#443](https://github.com/sidhuiwnl/tambo/issues/443)) ([0b8a60e](https://github.com/sidhuiwnl/tambo/commit/0b8a60ecfacc03692aefcff57f2ed95b1552c0fc))
+* small devex tweaks ([#429](https://github.com/sidhuiwnl/tambo/issues/429)) ([b42caaa](https://github.com/sidhuiwnl/tambo/commit/b42caaab3f0e9d98adaea625891e0a2a1f146f83))
+* use [@latest](https://github.com/latest) on internal tambo cli call in create-tambo-app ([#445](https://github.com/sidhuiwnl/tambo/issues/445)) ([f78d4a1](https://github.com/sidhuiwnl/tambo/commit/f78d4a1dfb80f01f345b855cebf5bcabfa439fb2))
+
+
+### Miscellaneous Chores
+
+* bump dev to node 22 ([#569](https://github.com/sidhuiwnl/tambo/issues/569)) ([fd5209e](https://github.com/sidhuiwnl/tambo/commit/fd5209e74a88dd4676f663bf0161e0030e41a943))
+* **deps-dev:** bump the eslint group across 1 directory with 5 updates ([#672](https://github.com/sidhuiwnl/tambo/issues/672)) ([28a6d93](https://github.com/sidhuiwnl/tambo/commit/28a6d93a686eebf8e102f74ddf989a8627d98e53))
+* **deps-dev:** bump the eslint group with 2 updates ([#585](https://github.com/sidhuiwnl/tambo/issues/585)) ([f49223d](https://github.com/sidhuiwnl/tambo/commit/f49223d888ba9b921e80825f2ff04ebde15f6f6a))
+* **deps-dev:** bump the eslint group with 3 updates ([#428](https://github.com/sidhuiwnl/tambo/issues/428)) ([7cb3700](https://github.com/sidhuiwnl/tambo/commit/7cb370038733289aff53d8033e533d39b7dcfe61))
+* **deps-dev:** bump the eslint group with 4 updates ([#538](https://github.com/sidhuiwnl/tambo/issues/538)) ([d3c054c](https://github.com/sidhuiwnl/tambo/commit/d3c054c73545835424f14ea022252a3996127fc3))
+* **deps-dev:** bump the eslint group with 4 updates ([#602](https://github.com/sidhuiwnl/tambo/issues/602)) ([00832a8](https://github.com/sidhuiwnl/tambo/commit/00832a88e5440afbfe9033322090ed7914d5ae98))
+* **deps-dev:** bump the eslint group with 4 updates ([#720](https://github.com/sidhuiwnl/tambo/issues/720)) ([fcfcb6c](https://github.com/sidhuiwnl/tambo/commit/fcfcb6c8f7e2c98139279cbb0fe41057f45f2f2a))
+* **deps-dev:** bump the eslint group with 4 updates ([#846](https://github.com/sidhuiwnl/tambo/issues/846)) ([8675209](https://github.com/sidhuiwnl/tambo/commit/867520964bd1b4ad058281712e86defaeb195fd2))
+* **deps-dev:** bump the eslint group with 5 updates ([#401](https://github.com/sidhuiwnl/tambo/issues/401)) ([8e2439e](https://github.com/sidhuiwnl/tambo/commit/8e2439e2887bc7e13fa0cca09512a9a5d751b190))
+* **deps-dev:** bump the eslint group with 5 updates ([#647](https://github.com/sidhuiwnl/tambo/issues/647)) ([32077e3](https://github.com/sidhuiwnl/tambo/commit/32077e36e194d712c7b1c7b8446ddd12aa7d1fe3))
+* **deps-dev:** bump the eslint group with 5 updates ([#680](https://github.com/sidhuiwnl/tambo/issues/680)) ([846cf38](https://github.com/sidhuiwnl/tambo/commit/846cf38012985f02958cdec43d970be27e6d0f02))
+* **deps-dev:** bump the eslint group with 5 updates ([#826](https://github.com/sidhuiwnl/tambo/issues/826)) ([342097e](https://github.com/sidhuiwnl/tambo/commit/342097e15ae1503c3d3df5cffb0d96a829fd7f5f))
+* **deps-dev:** bump the eslint group with 5 updates ([#917](https://github.com/sidhuiwnl/tambo/issues/917)) ([ee0ee2e](https://github.com/sidhuiwnl/tambo/commit/ee0ee2e541d6a37322131a15cc02f6694436ceb3))
+* **deps-dev:** bump the eslint group with 6 updates ([#492](https://github.com/sidhuiwnl/tambo/issues/492)) ([9efc361](https://github.com/sidhuiwnl/tambo/commit/9efc3611ab68d4a38709d6f6b148f28f25258716))
+* **deps-dev:** bump typescript from 5.8.3 to 5.9.2 ([#790](https://github.com/sidhuiwnl/tambo/issues/790)) ([49b86a0](https://github.com/sidhuiwnl/tambo/commit/49b86a0ba3198419054b7b75af9970321224b997))
+* **deps-dev:** bump typescript-eslint from 8.33.1 to 8.34.0 in the eslint group ([#507](https://github.com/sidhuiwnl/tambo/issues/507)) ([c662d2b](https://github.com/sidhuiwnl/tambo/commit/c662d2b5f006c553e6daef134a862b47a50fdd18))
+* **main:** release create-tambo-app 0.1.0 ([#377](https://github.com/sidhuiwnl/tambo/issues/377)) ([e63d613](https://github.com/sidhuiwnl/tambo/commit/e63d613dcd8ea69305c7e9ae96e797be5c45b228))
+* **main:** release create-tambo-app 0.1.1 ([#416](https://github.com/sidhuiwnl/tambo/issues/416)) ([478950f](https://github.com/sidhuiwnl/tambo/commit/478950f7dcd3c15bb047049a1d44b522fc65d926))
+* **main:** release create-tambo-app 0.1.10 ([#793](https://github.com/sidhuiwnl/tambo/issues/793)) ([4310fa1](https://github.com/sidhuiwnl/tambo/commit/4310fa15916768b6f793e14ccf95eed5f0e799bc))
+* **main:** release create-tambo-app 0.1.11 ([#812](https://github.com/sidhuiwnl/tambo/issues/812)) ([bf65249](https://github.com/sidhuiwnl/tambo/commit/bf65249a7e9d9d902b12548f5a540b533848aca6))
+* **main:** release create-tambo-app 0.1.12 ([#834](https://github.com/sidhuiwnl/tambo/issues/834)) ([0bfe21b](https://github.com/sidhuiwnl/tambo/commit/0bfe21b81e1dd15eda316ad3eb947e75cd5dd5ff))
+* **main:** release create-tambo-app 0.1.13 ([#863](https://github.com/sidhuiwnl/tambo/issues/863)) ([7809e22](https://github.com/sidhuiwnl/tambo/commit/7809e22b7ca196eb80404f73d66c92df8c8d1cb1))
+* **main:** release create-tambo-app 0.1.2 ([#438](https://github.com/sidhuiwnl/tambo/issues/438)) ([4a0b773](https://github.com/sidhuiwnl/tambo/commit/4a0b773c778180cee792064538a75ad24e7ffec7))
+* **main:** release create-tambo-app 0.1.3 ([#444](https://github.com/sidhuiwnl/tambo/issues/444)) ([bd4291c](https://github.com/sidhuiwnl/tambo/commit/bd4291cfca8101ae9c2fad321e0dc4a71442496e))
+* **main:** release create-tambo-app 0.1.4 ([#446](https://github.com/sidhuiwnl/tambo/issues/446)) ([68fc5cd](https://github.com/sidhuiwnl/tambo/commit/68fc5cd04939341be8e19ec86323803696528b4c))
+* **main:** release create-tambo-app 0.1.5 ([#504](https://github.com/sidhuiwnl/tambo/issues/504)) ([d6485c3](https://github.com/sidhuiwnl/tambo/commit/d6485c3a90d89c410f3c5e3307aa4d5c5f554e2a))
+* **main:** release create-tambo-app 0.1.6 ([#649](https://github.com/sidhuiwnl/tambo/issues/649)) ([7b264e2](https://github.com/sidhuiwnl/tambo/commit/7b264e2c0b78350eb021a186d999a1f05a75344c))
+* **main:** release create-tambo-app 0.1.7 ([#673](https://github.com/sidhuiwnl/tambo/issues/673)) ([2be606a](https://github.com/sidhuiwnl/tambo/commit/2be606a89ef77ce13e14ac5f8d162655d4b3a1fa))
+* **main:** release create-tambo-app 0.1.8 ([#692](https://github.com/sidhuiwnl/tambo/issues/692)) ([cd9fd06](https://github.com/sidhuiwnl/tambo/commit/cd9fd06d8c561a4d14df0f86162d2a518ac5ee7f))
+* **main:** release create-tambo-app 0.1.9 ([#727](https://github.com/sidhuiwnl/tambo/issues/727)) ([4ea80c8](https://github.com/sidhuiwnl/tambo/commit/4ea80c80fe5fec56b445ff5de69e23f7fbf3f3dd))
+* **packages:** pin npm to 11.5.2, rereun npm install, npm dedupe ([#810](https://github.com/sidhuiwnl/tambo/issues/810)) ([e657057](https://github.com/sidhuiwnl/tambo/commit/e657057af2f3396dfa61d30670544a480ff97a24))
+* update documentation links to new domain and update dev command filter ([#698](https://github.com/sidhuiwnl/tambo/issues/698)) ([23946de](https://github.com/sidhuiwnl/tambo/commit/23946de0d4a67919e119f7188731f83bcc2e86a0))
+
 ## [0.1.13](https://github.com/tambo-ai/tambo/compare/create-tambo-app-v0.1.12...create-tambo-app-v0.1.13) (2025-08-23)
 
 
