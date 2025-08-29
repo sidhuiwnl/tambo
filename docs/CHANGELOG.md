@@ -1,5 +1,113 @@
 # Changelog
 
+## [1.5.0](https://github.com/sidhuiwnl/tambo/compare/docs-v1.4.0...docs-v1.5.0) (2025-08-29)
+
+
+### Features
+
+* add custom context helpers for additional context ([#801](https://github.com/sidhuiwnl/tambo/issues/801)) ([2e33769](https://github.com/sidhuiwnl/tambo/commit/2e3376962c096e965266a9db96b0dcdc5c930b43))
+* add pre-built context helpers ([#769](https://github.com/sidhuiwnl/tambo/issues/769)) ([757448b](https://github.com/sidhuiwnl/tambo/commit/757448b949f33a89ad0bc25b56918d95748da5ab))
+* add tambo hack banner and update mobile layout ([#895](https://github.com/sidhuiwnl/tambo/issues/895)) ([bb04b1c](https://github.com/sidhuiwnl/tambo/commit/bb04b1cff0eccbf087a4c5d4b01b24eb64dc9014))
+* **docs:** integrate PostHog for analytics and add Web Vitals reporting ([#894](https://github.com/sidhuiwnl/tambo/issues/894)) ([90c5c3f](https://github.com/sidhuiwnl/tambo/commit/90c5c3f05702fd18c29a6caf342b013ee2788f5e))
+* migrate from react-markdown to streamdown ([#927](https://github.com/sidhuiwnl/tambo/issues/927)) ([fe5648e](https://github.com/sidhuiwnl/tambo/commit/fe5648e1e15d0181bc3bfc48bebdc556bb4be6b9))
+* setup release-please for docs site ([#699](https://github.com/sidhuiwnl/tambo/issues/699)) ([13cb83d](https://github.com/sidhuiwnl/tambo/commit/13cb83d09c98994d6ce56e11b2d5dfb143e0c32d))
+* useTamboThreadInput context return reactquery values ([#897](https://github.com/sidhuiwnl/tambo/issues/897)) ([13aeff6](https://github.com/sidhuiwnl/tambo/commit/13aeff669bd5760e4f8f93e9ff77dae301f4ba83))
+
+
+### Bug Fixes
+
+* add back in doc gif ([#765](https://github.com/sidhuiwnl/tambo/issues/765)) ([6be69e5](https://github.com/sidhuiwnl/tambo/commit/6be69e553b9138546d4d66c9059ea50a27faad29))
+* cleanup TamboPropStreamProvider ([#713](https://github.com/sidhuiwnl/tambo/issues/713)) ([d486d0a](https://github.com/sidhuiwnl/tambo/commit/d486d0aeef52930fb531d15fbe3e662af09ad254))
+* remove last edit from docs to allow build ([#777](https://github.com/sidhuiwnl/tambo/issues/777)) ([7cf864a](https://github.com/sidhuiwnl/tambo/commit/7cf864a38ef5be9bbd1f36bb404538806041f2c9))
+* sidebar overlaps with header [#942](https://github.com/sidhuiwnl/tambo/issues/942) ([#944](https://github.com/sidhuiwnl/tambo/issues/944)) ([9467132](https://github.com/sidhuiwnl/tambo/commit/94671328260e01e5c4aabae77865da1120d6f6fa))
+
+
+### Miscellaneous Chores
+
+* **build:** fix docs build ([#923](https://github.com/sidhuiwnl/tambo/issues/923)) ([b65f0d3](https://github.com/sidhuiwnl/tambo/commit/b65f0d371e05285460cf88cb9d51c2141d9747d0))
+* **deps-dev:** bump @tailwindcss/postcss from 4.1.11 to 4.1.12 ([#855](https://github.com/sidhuiwnl/tambo/issues/855)) ([a7b5caf](https://github.com/sidhuiwnl/tambo/commit/a7b5caf2ef12781fe5e16033a5d8449cecea6512))
+* **deps-dev:** bump typescript from 5.8.3 to 5.9.2 ([#790](https://github.com/sidhuiwnl/tambo/issues/790)) ([49b86a0](https://github.com/sidhuiwnl/tambo/commit/49b86a0ba3198419054b7b75af9970321224b997))
+* **deps:** bump @tambo-ai/typescript-sdk to get deprecated ActionType ([#928](https://github.com/sidhuiwnl/tambo/issues/928)) ([0b316e6](https://github.com/sidhuiwnl/tambo/commit/0b316e6d842241069e8b17d5823b8b8df60cbaf8))
+* **deps:** bump fumadocs-core from 15.6.10 to 15.6.12 ([#850](https://github.com/sidhuiwnl/tambo/issues/850)) ([24644a1](https://github.com/sidhuiwnl/tambo/commit/24644a1358824475ed50442ee1493b66bce34c9f))
+* **deps:** bump fumadocs-core from 15.6.5 to 15.6.6 ([#732](https://github.com/sidhuiwnl/tambo/issues/732)) ([14aa154](https://github.com/sidhuiwnl/tambo/commit/14aa1540c7944d5538ac2e0ab525bfbeb35f3039))
+* **deps:** bump fumadocs-core from 15.6.6 to 15.6.9 ([#821](https://github.com/sidhuiwnl/tambo/issues/821)) ([2423953](https://github.com/sidhuiwnl/tambo/commit/24239533114148903d0195ddce8e8b1c57602c64))
+* **deps:** bump fumadocs-mdx from 11.7.0 to 11.7.1 ([#725](https://github.com/sidhuiwnl/tambo/issues/725)) ([6f786ae](https://github.com/sidhuiwnl/tambo/commit/6f786ae482c698f13237fef70a874dbe75f33773))
+* **deps:** bump fumadocs-mdx from 11.7.1 to 11.7.3 ([#785](https://github.com/sidhuiwnl/tambo/issues/785)) ([f73a4ce](https://github.com/sidhuiwnl/tambo/commit/f73a4ce189618be6c13a226aa370dca31e61a7cb))
+* **deps:** bump fumadocs-mdx from 11.7.3 to 11.7.4 ([#824](https://github.com/sidhuiwnl/tambo/issues/824)) ([8eef4cf](https://github.com/sidhuiwnl/tambo/commit/8eef4cf44339772709cd690657f46fcd83d063e8))
+* **deps:** bump fumadocs-mdx from 11.7.4 to 11.7.5 ([#860](https://github.com/sidhuiwnl/tambo/issues/860)) ([512a202](https://github.com/sidhuiwnl/tambo/commit/512a202b266eea819daae1d4861b7b6ff9e68aea))
+* **deps:** bump fumadocs-mdx from 11.7.5 to 11.8.0 ([#918](https://github.com/sidhuiwnl/tambo/issues/918)) ([2604122](https://github.com/sidhuiwnl/tambo/commit/26041226db95e8cfeff7882a2a546c44418d7e83))
+* **deps:** bump fumadocs-ui from 15.6.5 to 15.6.6 ([#735](https://github.com/sidhuiwnl/tambo/issues/735)) ([44a55bd](https://github.com/sidhuiwnl/tambo/commit/44a55bd92c3a9f8eba1aaac3ac8f8bb9dd32b98f))
+* **deps:** bump fumadocs-ui from 15.6.6 to 15.6.9 ([#783](https://github.com/sidhuiwnl/tambo/issues/783)) ([c73936c](https://github.com/sidhuiwnl/tambo/commit/c73936c84e22308069843439fe0107558d5534ba))
+* **deps:** bump fumadocs-ui from 15.6.9 to 15.6.12 ([#854](https://github.com/sidhuiwnl/tambo/issues/854)) ([4f26122](https://github.com/sidhuiwnl/tambo/commit/4f261225de8ca869f136e714c3fd3538893e24db))
+* **deps:** bump lucide-react from 0.525.0 to 0.532.0 ([#721](https://github.com/sidhuiwnl/tambo/issues/721)) ([669a64d](https://github.com/sidhuiwnl/tambo/commit/669a64db44b1a87a078395b203b6327836fb857f))
+* **deps:** bump lucide-react from 0.532.0 to 0.536.0 ([#781](https://github.com/sidhuiwnl/tambo/issues/781)) ([9f80a50](https://github.com/sidhuiwnl/tambo/commit/9f80a50c9359c3df741f329584608c35f7fbee58))
+* **deps:** bump lucide-react from 0.536.0 to 0.539.0 ([#830](https://github.com/sidhuiwnl/tambo/issues/830)) ([1dfe483](https://github.com/sidhuiwnl/tambo/commit/1dfe483dc92ec6a3e043f9d15f958d183f87e557))
+* **deps:** bump lucide-react from 0.539.0 to 0.540.0 ([#849](https://github.com/sidhuiwnl/tambo/issues/849)) ([52f4804](https://github.com/sidhuiwnl/tambo/commit/52f48045cc051882c990b353c3ef9152717abe2a))
+* **deps:** bump lucide-react from 0.540.0 to 0.541.0 ([#916](https://github.com/sidhuiwnl/tambo/issues/916)) ([50da283](https://github.com/sidhuiwnl/tambo/commit/50da2833e2e451211377cde13abd28d5835e2b7c))
+* **deps:** bump mermaid from 11.10.0 to 11.10.1 ([#930](https://github.com/sidhuiwnl/tambo/issues/930)) ([1de614a](https://github.com/sidhuiwnl/tambo/commit/1de614af1c04c77bbf2431d347efb6f519a60de2))
+* **deps:** bump mermaid from 11.9.0 to 11.10.0 in the npm_and_yarn group ([#871](https://github.com/sidhuiwnl/tambo/issues/871)) ([e4f5feb](https://github.com/sidhuiwnl/tambo/commit/e4f5febb7b211f9d783cf347d8909be4c0a37106))
+* **deps:** bump next from 15.3.5 to 15.4.4 ([#724](https://github.com/sidhuiwnl/tambo/issues/724)) ([bcbc50a](https://github.com/sidhuiwnl/tambo/commit/bcbc50a4e7cea5fcf720ca6d0ffbe57c5897cf54))
+* **deps:** bump next from 15.4.4 to 15.4.6 ([#828](https://github.com/sidhuiwnl/tambo/issues/828)) ([a073604](https://github.com/sidhuiwnl/tambo/commit/a0736041c951d21c84c23979b617dc47d62648bd))
+* **deps:** bump next from 15.4.6 to 15.4.7 ([#862](https://github.com/sidhuiwnl/tambo/issues/862)) ([7abc4f9](https://github.com/sidhuiwnl/tambo/commit/7abc4f97337d08adc5bd132dd4e6f44dfaea6b35))
+* **deps:** bump next from 15.4.7 to 15.5.0 ([#914](https://github.com/sidhuiwnl/tambo/issues/914)) ([4c4ff85](https://github.com/sidhuiwnl/tambo/commit/4c4ff85c219e8018f743d5fbe32d8a2b111819dc))
+* **deps:** bump posthog-js from 1.260.1 to 1.260.2 ([#921](https://github.com/sidhuiwnl/tambo/issues/921)) ([f14e759](https://github.com/sidhuiwnl/tambo/commit/f14e7590129c2d4d32ee551c840b8a7773692a22))
+* **deps:** bump posthog-js from 1.260.3 to 1.261.0 ([#953](https://github.com/sidhuiwnl/tambo/issues/953)) ([26e9507](https://github.com/sidhuiwnl/tambo/commit/26e9507d5976423cdc572757c1c9be40fcfc8789))
+* **deps:** bump streamdown from 1.1.3 to 1.1.5 ([#950](https://github.com/sidhuiwnl/tambo/issues/950)) ([5aff96d](https://github.com/sidhuiwnl/tambo/commit/5aff96daf6685b7b9198819aba3cb1576d9622a0))
+* **deps:** bump the fumadocs group with 3 updates ([#952](https://github.com/sidhuiwnl/tambo/issues/952)) ([d7e2a72](https://github.com/sidhuiwnl/tambo/commit/d7e2a7244f2383a2195da67c1a79422b6506b0a7))
+* **deps:** Fix some duplicated/misaligned [@types](https://github.com/types) versions ([#867](https://github.com/sidhuiwnl/tambo/issues/867)) ([0c3fcfe](https://github.com/sidhuiwnl/tambo/commit/0c3fcfe4a7356966e74104b5c60397aab7eb7848))
+* **docs:** add documentation for additional context ([#745](https://github.com/sidhuiwnl/tambo/issues/745)) ([84ccd70](https://github.com/sidhuiwnl/tambo/commit/84ccd705fccf3e4acb798134d998bacf199e6fb7))
+* Fix react/mcp subpackage path ([#946](https://github.com/sidhuiwnl/tambo/issues/946)) ([180ed1b](https://github.com/sidhuiwnl/tambo/commit/180ed1be9c04dc58c256d1183cdfc812fb3b961b))
+* fix tsconfig paths for react-sdk ([#945](https://github.com/sidhuiwnl/tambo/issues/945)) ([14dab2f](https://github.com/sidhuiwnl/tambo/commit/14dab2f4ae96e1a3c7b24cc84b0d15d74106f9a5))
+* **main:** release docs 1.0.0 ([#700](https://github.com/sidhuiwnl/tambo/issues/700)) ([f82ebc0](https://github.com/sidhuiwnl/tambo/commit/f82ebc0844891ec742c82f34dca9f8e9f9d3cddb))
+* **main:** release docs 1.0.1 ([#706](https://github.com/sidhuiwnl/tambo/issues/706)) ([a57bf6e](https://github.com/sidhuiwnl/tambo/commit/a57bf6e0544d9cc4fd3f1970d9bc99544f903010))
+* **main:** release docs 1.0.10 ([#764](https://github.com/sidhuiwnl/tambo/issues/764)) ([78dfc8c](https://github.com/sidhuiwnl/tambo/commit/78dfc8cf3d59cd2b7263549103b1316154650564))
+* **main:** release docs 1.0.11 ([#766](https://github.com/sidhuiwnl/tambo/issues/766)) ([d47dc9c](https://github.com/sidhuiwnl/tambo/commit/d47dc9c60cb1294e9962eb4c41853334c8835d3c))
+* **main:** release docs 1.0.12 ([#768](https://github.com/sidhuiwnl/tambo/issues/768)) ([9e4ae31](https://github.com/sidhuiwnl/tambo/commit/9e4ae316892447c414ab3670f632ad37d08b28cc))
+* **main:** release docs 1.0.2 ([#709](https://github.com/sidhuiwnl/tambo/issues/709)) ([8ef15df](https://github.com/sidhuiwnl/tambo/commit/8ef15df38e11e0fa86f3af6eeb7d5bba4377b138))
+* **main:** release docs 1.0.3 ([#718](https://github.com/sidhuiwnl/tambo/issues/718)) ([49b85b1](https://github.com/sidhuiwnl/tambo/commit/49b85b1717417708e58a9901b7331536bd006b2e))
+* **main:** release docs 1.0.3 ([#719](https://github.com/sidhuiwnl/tambo/issues/719)) ([4050059](https://github.com/sidhuiwnl/tambo/commit/40500595b916bab7922cb663f5958bf9cdd2ce3a))
+* **main:** release docs 1.0.4 ([#726](https://github.com/sidhuiwnl/tambo/issues/726)) ([1729a3e](https://github.com/sidhuiwnl/tambo/commit/1729a3e886c14a781a0f86f008d878f1d3865f83))
+* **main:** release docs 1.0.5 ([#733](https://github.com/sidhuiwnl/tambo/issues/733)) ([b41f739](https://github.com/sidhuiwnl/tambo/commit/b41f739a3e76b0d6c98c7016bf41590703c73ffe))
+* **main:** release docs 1.0.6 ([#746](https://github.com/sidhuiwnl/tambo/issues/746)) ([a89c2ec](https://github.com/sidhuiwnl/tambo/commit/a89c2ec1e268c48e37cfc1140b7f37313c4c2526))
+* **main:** release docs 1.0.7 ([#748](https://github.com/sidhuiwnl/tambo/issues/748)) ([2e2b243](https://github.com/sidhuiwnl/tambo/commit/2e2b2436fda733b80de7b68664b06654b04b3994))
+* **main:** release docs 1.0.8 ([#753](https://github.com/sidhuiwnl/tambo/issues/753)) ([dc88212](https://github.com/sidhuiwnl/tambo/commit/dc88212d578d69cfbf8d098e3bcacf9f1ea49684))
+* **main:** release docs 1.0.9 ([#756](https://github.com/sidhuiwnl/tambo/issues/756)) ([9a10418](https://github.com/sidhuiwnl/tambo/commit/9a104187cec1d316dc3b54b9839f247beffb312a))
+* **main:** release docs 1.1.0 ([#776](https://github.com/sidhuiwnl/tambo/issues/776)) ([5f6d1d1](https://github.com/sidhuiwnl/tambo/commit/5f6d1d1035b4d7686f20e485f497a6119620a00f))
+* **main:** release docs 1.1.1 ([#779](https://github.com/sidhuiwnl/tambo/issues/779)) ([7910746](https://github.com/sidhuiwnl/tambo/commit/7910746b1c11f831c1d1f24e7047c1531c49304f))
+* **main:** release docs 1.1.2 ([#795](https://github.com/sidhuiwnl/tambo/issues/795)) ([46757b0](https://github.com/sidhuiwnl/tambo/commit/46757b0838364c164479e8335b485c3f5d98937b))
+* **main:** release docs 1.2.0 ([#803](https://github.com/sidhuiwnl/tambo/issues/803)) ([df583e2](https://github.com/sidhuiwnl/tambo/commit/df583e282c2273fc454f8dc18f2f811fbac4846c))
+* **main:** release docs 1.2.1 ([#815](https://github.com/sidhuiwnl/tambo/issues/815)) ([0b7dd71](https://github.com/sidhuiwnl/tambo/commit/0b7dd71e576fa97ad7c3cbbc5c1a428425199d3c))
+* **main:** release docs 1.2.2 ([#832](https://github.com/sidhuiwnl/tambo/issues/832)) ([df43290](https://github.com/sidhuiwnl/tambo/commit/df43290f118d3fc7a63b7d5af8381fe7c7c3aec3))
+* **main:** release docs 1.2.3 ([#858](https://github.com/sidhuiwnl/tambo/issues/858)) ([996fdbc](https://github.com/sidhuiwnl/tambo/commit/996fdbc60827f4113f326f327d2c689da0ed2b10))
+* **main:** release docs 1.2.4 ([#872](https://github.com/sidhuiwnl/tambo/issues/872)) ([2c18707](https://github.com/sidhuiwnl/tambo/commit/2c18707a607b1c49e6b93e525cc8eced1f18811a))
+* **main:** release docs 1.3.0 ([#898](https://github.com/sidhuiwnl/tambo/issues/898)) ([6f2cae3](https://github.com/sidhuiwnl/tambo/commit/6f2cae393541913c0f0b14b52390a6e979c71bc4))
+* **main:** release docs 1.3.1 ([#906](https://github.com/sidhuiwnl/tambo/issues/906)) ([10aefc8](https://github.com/sidhuiwnl/tambo/commit/10aefc86f47d5ec56e15533b3f9a48897c49d98a))
+* **main:** release docs 1.3.2 ([#909](https://github.com/sidhuiwnl/tambo/issues/909)) ([17585c1](https://github.com/sidhuiwnl/tambo/commit/17585c1a126172efde36b9e7e8e5fea893c71262))
+* **main:** release docs 1.4.0 ([#939](https://github.com/sidhuiwnl/tambo/issues/939)) ([dfa154f](https://github.com/sidhuiwnl/tambo/commit/dfa154f8e932b4966eca5e1ef284318bd80a5d16))
+* remove conversational-form template from CLI and documentation ([#908](https://github.com/sidhuiwnl/tambo/issues/908)) ([3f24f2b](https://github.com/sidhuiwnl/tambo/commit/3f24f2be17819e338df031ea26d3c27f4caf9637))
+* update additional context docs ([#780](https://github.com/sidhuiwnl/tambo/issues/780)) ([dcaaa1c](https://github.com/sidhuiwnl/tambo/commit/dcaaa1c91a966c6882aa61075b1391a4682ab313))
+* update dependencies and update message input handling ([#905](https://github.com/sidhuiwnl/tambo/issues/905)) ([8015195](https://github.com/sidhuiwnl/tambo/commit/80151952ea321f8cf65a5e9b447b84ea6986125e))
+* update documentation links to new domain and update dev command filter ([#698](https://github.com/sidhuiwnl/tambo/issues/698)) ([23946de](https://github.com/sidhuiwnl/tambo/commit/23946de0d4a67919e119f7188731f83bcc2e86a0))
+
+
+### Documentation
+
+* add 'edit on github' link to docs pages ([#767](https://github.com/sidhuiwnl/tambo/issues/767)) ([63aae74](https://github.com/sidhuiwnl/tambo/commit/63aae74b57395baa076a8da80a68ee8da784515b))
+* add docs header and chatwithtambo ([#838](https://github.com/sidhuiwnl/tambo/issues/838)) ([8509f26](https://github.com/sidhuiwnl/tambo/commit/8509f26180ca1f3d53333b61321c3fa6c54f263a))
+* add init docs llms.txt ([#778](https://github.com/sidhuiwnl/tambo/issues/778)) ([4624b34](https://github.com/sidhuiwnl/tambo/commit/4624b3447f115b23879acf58a416de63203d5c3a))
+* Add Interactables doc page ([#744](https://github.com/sidhuiwnl/tambo/issues/744)) ([cfacd3d](https://github.com/sidhuiwnl/tambo/commit/cfacd3dc23a80ef4c2d135a5c02d6a1c5374f119))
+* add new section for Models ([#809](https://github.com/sidhuiwnl/tambo/issues/809)) ([7b4652a](https://github.com/sidhuiwnl/tambo/commit/7b4652a8c961f0b14b9022e5be54e6d86e1f5287))
+* add recently-added docs ([#701](https://github.com/sidhuiwnl/tambo/issues/701)) ([5044c5a](https://github.com/sidhuiwnl/tambo/commit/5044c5aefc03ddc586b8239e78d91ae716712714))
+* add tambo mcp doc page ([#835](https://github.com/sidhuiwnl/tambo/issues/835)) ([69d9777](https://github.com/sidhuiwnl/tambo/commit/69d977735ac734d83f6f1ebd321011c3559d66df))
+* fix mermaid diagram ([#763](https://github.com/sidhuiwnl/tambo/issues/763)) ([b33d5cf](https://github.com/sidhuiwnl/tambo/commit/b33d5cf04c71345f768097e85de13e8dc5a81748))
+* move docs to opensource repo ([#697](https://github.com/sidhuiwnl/tambo/issues/697)) ([3576dac](https://github.com/sidhuiwnl/tambo/commit/3576dace7c6dc33308e228395211a1a2f38ad17a))
+* small change to trigger release ([#752](https://github.com/sidhuiwnl/tambo/issues/752)) ([7c1975c](https://github.com/sidhuiwnl/tambo/commit/7c1975cb59c1267d095d1334c0feed882feb8317))
+* small update to test release ([#705](https://github.com/sidhuiwnl/tambo/issues/705)) ([b3de946](https://github.com/sidhuiwnl/tambo/commit/b3de94634527e56d489eae50c7a65cfa1dd110f5))
+* small update to trigger release ([#708](https://github.com/sidhuiwnl/tambo/issues/708)) ([52bcfed](https://github.com/sidhuiwnl/tambo/commit/52bcfedac8e4aca0ede00959787c48b8ab672cc3))
+* trigger docs release ([#755](https://github.com/sidhuiwnl/tambo/issues/755)) ([5ff8544](https://github.com/sidhuiwnl/tambo/commit/5ff8544ac21dac547cc27f7673ba586fe00a0c55))
+* update component-state docs ([#936](https://github.com/sidhuiwnl/tambo/issues/936)) ([102227b](https://github.com/sidhuiwnl/tambo/commit/102227bde99ebf94e1bbb708e45683f43027184a))
+* update function name in interactables doc to 'withInteractable' ([#799](https://github.com/sidhuiwnl/tambo/issues/799)) ([cbb2ada](https://github.com/sidhuiwnl/tambo/commit/cbb2adab2e3c5c213203b8a7eb09f56ac4c52225))
+
 ## [1.4.0](https://github.com/tambo-ai/tambo/compare/docs-v1.3.2...docs-v1.4.0) (2025-08-28)
 
 
